@@ -60,10 +60,10 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       position: { x: -100, y: 0, z: 0 },
       size: 85,
       faces: [
-        { type: 'image', src: '../assets/forge.png' },
-        { type: 'image', src: '../assets/fox.png' },
-        { type: 'image', src: '../assets/tabletop.png' },
-        { type: 'image', src: '../assets/rybuild.png' },
+        { type: 'image', src: '../../assets/forge.png' },
+        { type: 'image', src: '../../assets/fox.png' },
+        { type: 'image', src: '../../assets/tabletop.png' },
+        { type: 'image', src: '../../assets/rybuild.png' },
         { type: 'solid', color: 0xFF4500 },
         { type: 'solid', color: 0x1a1a1a }
       ]
