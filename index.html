@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FEAR13SS_FUAX // Full-Stack Brand Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <canvas id="ff-three-canvas"></canvas>
+
+  <div class="ff-container">
+    <div class="ff-grid">
+      <header class="ff-cell ff-nav">
+        <a href="#" class="ff-brand-tag">FEAR13SS<span>_</span>FUAX</a>
+        <nav>
+          <ul class="ff-nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="https://lets-make-something-cool.netlify.app/">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="ff-cell ff-hero-main">
+        <p class="ff-mono-meta">ARCHITECTURAL DESIGN • HIGH-PERFORMANCE CODE • AI DIRECTION</p>
+        <h1 class="ff-title-xl">Full-Stack<br>Brand<br>Architecture</h1>
+        <p class="ff-subtitle">
+          Eliminating the gap between raw artistic vision and production engineering. Built for founders, indie builders, and tech teams who refuse safe corporate templates. Established for the Unfinished.
+        </p>
+        <div class="ff-button-group">
+          <a href="https://site-template.netlify.app/" class="ff-button">INITIATE DIRECT SYSTEM BUILD</a>
+          <a href="#work" class="ff-button ff-button-secondary">VIEW SELECTED WORK</a>
+        </div>
+      </main>
+
+      <aside class="ff-cell ff-hero-sidebar">
+        <div>
+          <p class="ff-mono-meta">CORE_CAPABILITIES</p>
+          <div class="ff-stat-box">
+            <div class="ff-stat-value">01 // BRAND ARCHITCTURE</div>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 4px;">Complete identity systems, custom logo vectors, color tokens, and design frameworks tailored to your visual vision.</p>
+          </div>
+          <div class="ff-stat-box">
+            <div class="ff-stat-value">02 // DIGITAL</div>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 4px;">Interactive frontends, custom web applications, and high-speed deployments built without corporate template bloat.</p>
+          </div>
+          <div class="ff-stat-box">
+            <div class="ff-stat-value">03 // MOTION</div>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 4px;">3D interactive assets, scroll-driven animation, and brand storytelling.</p>
+          </div>
+        </div>
+        <div style="margin-top: 32px; border-top: 1px solid var(--border-raw); padding-top: 16px;">
+          <p class="ff-mono-meta">EXECUTION_MODEL</p>
+          <p style="font-size: 0.85rem; color: var(--text-concrete); margin-top: 8px; font-family: var(--font-tech-mono);">[ SOLO DIRECTOR • NO AGENCY OVERHEAD • RAPID LAUNCH ]</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <section id="work" class="ff-section">
+    <div class="ff-section-header">
+      <p class="ff-mono-meta">SELECTED_WORK // 2024—2026</p>
+      <h2 class="ff-title-section">Brand Systems<br>& Digital Assets</h2>
+      <p class="ff-section-desc">Interactive portfolio pieces. Drag, swipe, or spin to inspect each face.</p>
+    </div>
+    <div class="cube-gallery">
+      <canvas id="cube-canvas"></canvas>
+      <div class="cube-loading" id="cube-loading">LOADING ASSETS...</div>
+      <div class="cube-hint"><span class="ff-mono-meta">DRAG TO ROTATE // TOUCH & SWIPE ON MOBILE</span></div>
+    </div>
+  </section>
+
+  <footer id="contact" class="ff-footer">
+    <p>© 2026 FEARLESS_FOX // ALL SYSTEMS OPERATIONAL</p>
+    <p style="margin-top: 8px; color: var(--border-concrete);">Direct inquiries: build@fearlessfox.studio</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
