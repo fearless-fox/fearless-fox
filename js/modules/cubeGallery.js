@@ -47,7 +47,10 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       tex.minFilter = THREE.LinearFilter;
       tex.generateMipmaps = false;
       onTextureLoad();
-    }, undefined, () => onTextureLoad());
+    }, undefined, (err) => {
+      console.error('Cube gallery texture failed to load:', url, err);
+      onTextureLoad();
+    });
   }
 
   function createSolidMaterial(color) {
@@ -60,10 +63,10 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       position: { x: -100, y: 0, z: 0 },
       size: 85,
       faces: [
-        { type: 'image', src: '../../assets/forge.png' },
-        { type: 'image', src: '../../assets/fox.png' },
-        { type: 'image', src: '../../assets/tabletop.png' },
-        { type: 'image', src: '../../assets/rybuild.png' },
+        { type: 'image', src: 'assets/forge.png' },
+        { type: 'image', src: 'assets/fox.png' },
+        { type: 'image', src: 'assets/tabletop.png' },
+        { type: 'image', src: 'assets/rybuild.png' },
         { type: 'solid', color: 0xFF4500 },
         { type: 'solid', color: 0x1a1a1a }
       ]
@@ -73,10 +76,10 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       position: { x: 100, y: 0, z: 0 },
       size: 85,
       faces: [
-        { type: 'image', src: '../assets/nova.png' },
-        { type: 'image', src: '../assets/nixo.png' },
-        { type: 'image', src: '../assets/nexo.png' },
-        { type: 'image', src: '../assets/blank.png' },
+        { type: 'image', src: 'assets/nova.png' },
+        { type: 'image', src: 'assets/nixo.png' },
+        { type: 'image', src: 'assets/nexo.png' },
+        { type: 'image', src: 'assets/blank.png' },
         { type: 'solid', color: 0x1a1a1a },
         { type: 'solid', color: 0xFF4500 }
       ]
