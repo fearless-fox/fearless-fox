@@ -21,10 +21,13 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
 
   const textureLoader = new THREE.TextureLoader();
   let loadedCount = 0;
-  const totalTextures = 8;
 
   function onTextureLoad() {
     loadedCount++;
+    if (loadingEl) {
+      loadingEl.textContent = `LOADING ASSETS... ${loadedCount}/${totalTextures}`;
+    }
+    console.debug(`Cube gallery texture load progress: ${loadedCount}/${totalTextures}`);
     if (loadedCount >= totalTextures && loadingEl) {
       loadingEl.style.opacity = '0';
       setTimeout(() => loadingEl.remove(), 300);
@@ -63,10 +66,10 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       position: { x: -100, y: 0, z: 0 },
       size: 85,
       faces: [
-        { type: 'image', src: 'assets/forge.png' },
-        { type: 'image', src: 'assets/fox.png' },
-        { type: 'image', src: 'assets/tabletop.png' },
-        { type: 'image', src: 'assets/rybuild.png' },
+        { type: 'image', src: './assets/forge.png' },
+        { type: 'image', src: './assets/fox.png' },
+        { type: 'image', src: './assets/tabletop.png' },
+        { type: 'image', src: './assets/rybuild.png' },
         { type: 'solid', color: 0xFF4500 },
         { type: 'solid', color: 0x1a1a1a }
       ]
@@ -76,16 +79,21 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
       position: { x: 100, y: 0, z: 0 },
       size: 85,
       faces: [
-        { type: 'image', src: 'assets/nova.png' },
-        { type: 'image', src: 'assets/nixo.png' },
-        { type: 'image', src: 'assets/nexo.png' },
-        { type: 'image', src: 'assets/blank.png' },
+        { type: 'image', src: './assets/nova.png' },
+        { type: 'image', src: './assets/nixo.png' },
+        { type: 'image', src: './assets/nexo.png' },
+        { type: 'image', src: './assets/blank.png' },
         { type: 'solid', color: 0x1a1a1a },
         { type: 'solid', color: 0xFF4500 }
       ]
     }
   ];
 
+  const totalTextures = cubesData.reduce((sum, data) => sum + data.faces.filter(face => face.type === 'image').length, 0);
+  if (loadingEl) {
+    loadingEl.textContent = `LOADING ASSETS... 0/${totalTextures}`;
+  }
+  console.info('Cube gallery starting load:', totalTextures, 'textures');
   const cubes = [];
   const raycaster = new THREE.Raycaster();
   const mouseVector = new THREE.Vector2();
@@ -241,4 +249,14 @@ export function initCubeGallery(canvasId = 'cube-canvas') {
   window.addEventListener('resize', onResize);
   onResize();
   animate();
+
+  if (loadingEl) {
+    setTimeout(() => {
+      if (loadingEl && document.body.contains(loadingEl)) {
+        console.warn('Cube gallery loading overlay still visible after timeout, hiding fallback.');
+        loadingEl.style.opacity = '0';
+        setTimeout(() => loadingEl.remove(), 300);
+      }
+    }, 8000);
+  }
 }
